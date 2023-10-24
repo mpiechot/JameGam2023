@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class TargetMeshDeform : MonoBehaviour
 {
-    [SerializeField] private Transform origin;
-
     [SerializeField] private Transform target;
     [SerializeField] private Transform offsetTarget;
 
@@ -24,11 +22,6 @@ public class TargetMeshDeform : MonoBehaviour
         {
             targetInfluence[i] = 100 / Mathf.Pow(Vector3.Distance(Vector3.Scale(vertecies[i], transform.localScale), target.localPosition), 10);
         }
-    }
-
-    private void Update()
-    {
-         transform.position = origin.position;
     }
 
     void FixedUpdate()

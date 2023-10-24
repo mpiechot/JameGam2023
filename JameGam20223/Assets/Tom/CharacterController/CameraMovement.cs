@@ -29,7 +29,7 @@ public class CameraMovement : MonoBehaviour
     {
         zoomPosition += amount * zoomVelocity;
         zoomPosition = Mathf.Clamp01(zoomPosition);
-        cameraTransform.localPosition = new Vector3(0, 2, -2) + new Vector3(0, 8, -13) * (1 - zoomPosition);
+        cameraTransform.localPosition = new Vector3(0, 2, -5) + new Vector3(0, 8, -10) * (1 - zoomPosition);
         cameraTransform.localRotation = Quaternion.Euler(5 + 20 * (1 - zoomPosition), 0, 0);
     }
 
