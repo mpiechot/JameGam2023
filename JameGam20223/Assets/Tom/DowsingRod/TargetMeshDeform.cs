@@ -7,6 +7,9 @@ public class TargetMeshDeform : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private Transform offsetTarget;
 
+    [SerializeField] private float influenceQuotient;
+    [SerializeField] private float influenceExponent;
+
     private MeshFilter meshFilter;
 
     private Vector3[] vertecies;
@@ -20,7 +23,18 @@ public class TargetMeshDeform : MonoBehaviour
 
         for(int i = 0; i < vertecies.Length; i++)
         {
-            targetInfluence[i] = 100 / Mathf.Pow(Vector3.Distance(Vector3.Scale(vertecies[i], transform.localScale), target.localPosition), 10);
+            targetInfluence[i] = influenceQuotient / Mathf.Pow(Vector3.Distance(Vector3.Scale(vertecies[i], transform.localScale), target.localPosition), influenceExponent);
+        }
+    }
+
+    private void OnValidate()
+    {
+        if (vertecies != null)
+        {
+            for (int i = 0; i < vertecies.Length; i++)
+            {
+                targetInfluence[i] = influenceQuotient / Mathf.Pow(Vector3.Distance(Vector3.Scale(vertecies[i], transform.localScale), target.localPosition), influenceExponent);
+            }
         }
     }
 

@@ -7,6 +7,13 @@ public class InputModule : MonoBehaviour
     [SerializeField] private CharacterMovement characterMovement;
     [SerializeField] private CharacterAnimation characterAnimation;
     [SerializeField] private CameraMovement cameraMovement;
+    [SerializeField] private TargetCollecting targetCollecting;
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Fire1"))
+            targetCollecting.PerformCollection();
+    }
 
     void FixedUpdate()
     {
