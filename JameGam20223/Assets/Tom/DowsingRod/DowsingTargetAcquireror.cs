@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class DowsingTargetAcquireror : MonoBehaviour
 {
+    [SerializeField] private float collectionDistance = 3;
 
     private Collectable[] collectablesInScene;
     private int targetCollectable = 0;
 
     [SerializeField] private Transform offsetIndicator;
+
+    public float TargetDistance { get => targetCollectable < collectablesInScene.Length && collectablesInScene[targetCollectable] ? Vector3.Distance(transform.position, collectablesInScene[targetCollectable].transform.position) : 0; }
 
     private void FixedUpdate()
     {
@@ -48,9 +51,9 @@ public class DowsingTargetAcquireror : MonoBehaviour
         else return null;
     }
 
-    public bool IsInRange(float expectedDistance)
+    public bool IsInRange()
     {
-        return targetCollectable < collectablesInScene.Length && collectablesInScene[targetCollectable] && Vector3.Distance(offsetIndicator.transform.position, collectablesInScene[targetCollectable].transform.position) <= expectedDistance;
+        return targetCollectable < collectablesInScene.Length && collectablesInScene[targetCollectable] && Vector3.Distance(offsetIndicator.transform.position, collectablesInScene[targetCollectable].transform.position) <= collectionDistance;
     }
 
 }

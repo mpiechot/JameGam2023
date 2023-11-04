@@ -607,7 +607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c839ed5d89cbc49a39bff752aa21a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectionDistance: 3
   collectorMagnet: {fileID: 1272959606}
 --- !u!4 &702176909
 Transform:
@@ -986,6 +985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6e451f37b0010469075ec002be1af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectionDistance: 3
   offsetIndicator: {fileID: 1043553117}
 --- !u!1 &1445132588
 GameObject:
